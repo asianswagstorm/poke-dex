@@ -1,0 +1,15 @@
+.App {
+  background-attachment: fixed;
+  background-position: center;
+  background-color: transparent;
+  min-height: 100vh;
+}
+
+.content{
+  padding-bottom:20px;
+  height:100%;
+}
+
+ .footer-seperator{
+  padding-top: 20px;
+} 
