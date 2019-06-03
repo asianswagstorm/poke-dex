@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export default class Pokemons extends Component {
   state = {
-    url: 'https://pokeapi.co/api/v2/pokemon/?limit=15',
+    url: 'https://pokeapi.co/api/v2/pokemon/?limit=16',
     pokemon: null //where json will be saved
   };
 
@@ -25,7 +25,7 @@ export default class Pokemons extends Component {
        
          {console.log(this.state.pokemon)}
         {this.state.pokemon ? (
-          <div className="row">
+            <div className="row">
             {this.state.pokemon.map(pokemon => (
               <PokemonCard
                 key={pokemon.name}
@@ -34,6 +34,7 @@ export default class Pokemons extends Component {
               />
             ))}
           </div>
+         
         ) : (
           <Loading />
          )}

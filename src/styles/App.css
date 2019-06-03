@@ -1,15 +1,19 @@
 .App {
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   background-position: center;
   background-color: transparent;
   min-height: 100vh;
 }
 
+#wrapper {
+  min-height:100%;
+  margin:25px,0px,25px,0px;}
+
 .content{
-  padding-bottom:20px;
-  height:100%;
+  padding-bottom:30px;
+  min-height:100%;
 }
 
  .footer-seperator{
-  padding-top: 20px;
+  padding: 20px,0px,20px,0px;
 } 
