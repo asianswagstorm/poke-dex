@@ -9,7 +9,7 @@ export default class Header extends Component {
       <header className="header" style={{paddingTop:0}}>
         <div className="flex-container">
         <div className="search"> <Search/> </div>
-        <div className="header-title">  PokeDex App </div>
+        <div className="header-title">  <a className="home-title" href= "/" > PokeDex App </a></div>
         </div>
       </header>
     );

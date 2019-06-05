@@ -52,6 +52,6 @@ export default class Pokemon extends Component {
   };
 
   render() {
-    return <div> Hi </div>;
+    return <div className="random"> Hi </div>;
   }
 }

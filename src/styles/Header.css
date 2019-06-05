@@ -10,6 +10,15 @@
     font-size:30px;
 }
 
+.home-title{
+    color:white;
+}
+
+.home-title :hover , .home-title:focus , .home-title:visited ,.home-title:link ,.home-title:active{
+    text-decoration: none;
+    color:white;
+}
+
 .search{
     background-color: white;
     height: 2em;
