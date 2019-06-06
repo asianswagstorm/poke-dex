@@ -51,7 +51,75 @@ export default class Pokemon extends Component {
     themeColor: "#EF5350"
   };
 
+  componentDidMount = async () => {
+    try {
+      const { pokemonIndex } = this.props.match.params;
+      const pokemonSpeciesLink = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}`;
+      const pokemonLink = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`;
+      const poke = await Axios.get(
+        //transforms data into JSON
+        `https://cors-anywhere.herokuapp.com/${pokemonLink}`
+      );
+      const pokeSpecies = await fetch(
+        `https://cors-anywhere.herokuapp.com/${pokemonSpeciesLink}`
+      );
+      const jsonData = await pokeSpecies.json();
+      console.log(poke);
+      if (poke.data.length === 0) {
+        this.setState({ message: "No such Pokemon Found" });
+      } else {
+        this.setState({
+          pokemonIndex: poke.data.id,
+          name: poke.data.name,
+          height: poke.data.height * 10,
+          weight: poke.data.weight,
+          imageUrl: poke.data.sprites.front_default 
+        });
+      }
+    } catch (error) {
+      console.log("Invalid pokemon ID");
+      console.log(error);
+    }
+  };
+
   render() {
-    return <div className="random"> Hi </div>;
+    return (
+     
+      <div className="col">
+        <div className="card">
+          <div className="card-header">
+            <div className="row">
+              <div className="col-5">
+                <div className="random">
+                
+                  {this.state.pokemonIndex} <br />
+                 <br /> Weight: {this.state.weight} lbs<br />
+                  Height: {this.state.height} cm
+                </div>
+                <div className="col-7">
+                <div className="float-right" >
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div className="card-body">
+        <div className="row align-items-center">
+          <div className=" col-md-3 ">
+            <img src={this.state.imageUrl} className="card-img-top rounded mx-auto mt-2" />
+          </div>
+          <div className="col-md-9">
+            <h4 className="mx-auto">
+            <div className="random">{this.state.name}</div>
+              </h4>
+          </div>
+        </div>
+      </div>
+
+
+      </div>       
+    );
   }
 }
