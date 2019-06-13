@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Stats from "./Stats";
 import Axios from "axios";
 
 const TYPE_COLORS = {
@@ -95,6 +96,7 @@ export default class Pokemon extends Component {
   };
 
   render() {
+
     return (
       <div className="col">
         <div className="card">
@@ -136,130 +138,13 @@ export default class Pokemon extends Component {
               <h4 className="mx-auto">
                 <div className="random">{this.state.name}</div>
               </h4>
-              <div className="row align-items-center">
-                <div className={`col-12 col-md-5`}>HP</div>
-                <div className={`col-12 col-md-5`}>
-                  <div className="progress">
-                    <div
-                      className="progress-bar "
-                      role="progressbar"
-                      style={{
-                        width: `${this.state.hp}%`,
-                        backgroundColor: `#${this.state.themeColor}`
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      {console.log(`#${this.state.themeColor}`)}
-                      <small>{this.state.stats.hp}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="row align-items-center">
-                <div className={`col-12 col-md-5`}>Speed</div>
-                <div className={`col-12 col-md-5`}>
-                  <div className="progress">
-                    <div
-                      className="progress-bar "
-                      role="progressbar"
-                      style={{
-                        width: `${this.state.speed}%`,
-                        backgroundColor: `#${this.state.themeColor}`
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <small>{this.state.stats.speed}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>  
-              <div className="row align-items-center">
-                <div className={`col-12 col-md-5`}>Attack</div>
-                <div className={`col-12 col-md-5`}>
-                  <div className="progress">
-                    <div
-                      className="progress-bar "
-                      role="progressbar"
-                      style={{
-                        width: `${this.state.attack}%`,
-                        backgroundColor: `#${this.state.themeColor}`
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <small>{this.state.stats.attack}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row align-items-center">
-                <div className={`col-12 col-md-5`}>Defense</div>
-                <div className={`col-12 col-md-5`}>
-                  <div className="progress">
-                    <div
-                      className="progress-bar "
-                      role="progressbar"
-                      style={{
-                        width: `${this.state.defense}%`,
-                        backgroundColor: `#${this.state.themeColor}`
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <small>{this.state.stats.defense}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div className="row align-items-center">
-                <div className={`col-12 col-md-5`}>Special Attack</div>
-                <div className={`col-12 col-md-5`}>
-                  <div className="progress">
-                    <div
-                      className="progress-bar "
-                      role="progressbar"
-                      style={{
-                        width: `${this.state.specialAttack}%`,
-                        backgroundColor: `#${this.state.themeColor}`
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <small>{this.state.stats.specialAttack}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row align-items-center">
-                <div className={`col-12 col-md-5`}>Special Defense</div>
-                <div className={`col-12 col-md-5`}>
-                  <div className="progress">
-                    <div
-                      className="progress-bar "
-                      role="progressbar"
-                      style={{
-                        width: `${this.state.specialDefense}%`,
-                        backgroundColor: `#${this.state.themeColor}`
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <small>{this.state.stats.specialDefense}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <Stats stats_type={"HP"} stats_size = {this.state.hp} themeColor = {this.state.themeColor} stats_number= {this.state.stats.hp}/>
+            <Stats stats_type={"Speed"} stats_size = {this.state.speed} themeColor = {this.state.themeColor} stats_number= {this.state.stats.speed}/>
+            <Stats stats_type={"Attack"} stats_size = {this.state.attack} themeColor = {this.state.themeColor} stats_number= {this.state.stats.attack}/>
+            <Stats stats_type={"Defense"} stats_size = {this.state.defense} themeColor = {this.state.themeColor} stats_number= {this.state.stats.defense}/>
+            <Stats stats_type={"Special Attack"} stats_size = {this.state.specialAttack} themeColor = {this.state.themeColor} stats_number= {this.state.stats.specialAttack}/>
+            <Stats stats_type={"Special Defense"} stats_size = {this.state.specialDefense} themeColor = {this.state.themeColor} stats_number= {this.state.stats.specialDefense}/>
+           
             </div>
           </div>
         </div>
