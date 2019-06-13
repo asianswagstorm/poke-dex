@@ -50,6 +50,7 @@ export default class Pokemon extends Component {
     evs: "",
     hatchSteps: "",
     themeColor: "#EF5350"
+
   };
 
   componentDidMount = async () => {
@@ -64,11 +65,19 @@ export default class Pokemon extends Component {
       const pokeSpecies = await fetch(
         `https://cors-anywhere.herokuapp.com/${pokemonSpeciesLink}`
       );
-      // const jsonData = await pokeSpecies.json();
+      const speciesData = await pokeSpecies.json();
       const poke = pokeData.data;
       const types = poke.types.map(type => type.type.name);
       const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
       console.log(poke);
+      console.log(speciesData);
+      let description = "A Description" ; 
+      speciesData.flavor_text_entries.some(x =>{
+        if(x.language.name === "en" && x.language.url==="https://pokeapi.co/api/v2/language/9/"){
+          description = x.flavor_text;
+        }
+      })
+
       if (poke.length === 0) {
         this.setState({ message: "No such Pokemon Found" });
       } else {
@@ -86,7 +95,8 @@ export default class Pokemon extends Component {
           specialAttack: poke.stats[2].base_stat,
           specialDefense: poke.stats[1].base_stat,
           types: poke.types,
-          themeColor: themeColor
+          themeColor: themeColor,
+          description: description//speciesData.flavor_text_entries[9].flavor_text
         });
       }
     } catch (error) {
@@ -147,6 +157,11 @@ export default class Pokemon extends Component {
            
             </div>
           </div>
+          <div className="row mt-1" >
+              <div className="col" style={{ backgroundColor: "white" }}>
+                <p className="">{this.state.description}</p>
+              </div>
+            </div>
         </div>
       </div>
     );
