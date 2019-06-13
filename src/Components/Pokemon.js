@@ -134,84 +134,90 @@ export default class Pokemon extends Component {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="card-body" style={{ backgroundColor: "white" }}>
-          <div className="row align-items-center">
-            <div className=" col-md-3 ">
-              <img
-                src={this.state.imageUrl}
-                alt={"A Photograph of a Pokemon"}
-                className="card-img-top rounded mx-auto mt-2"
-              />
+          <div className="card-body">
+            <div className="row align-items-center">
+              <div className=" col-md-3 ">
+                <img
+                  src={this.state.imageUrl}
+                  alt={"A Photograph of a Pokemon"}
+                  className="card-img-top rounded mx-auto mt-2"
+                />
+              </div>
+              <div className="col-md-9">
+                <h4 className="mx-auto">
+                  <div className="random">{this.state.name}</div>
+                </h4>
+                <Stats
+                  stats_type={"HP"}
+                  stats_size={this.state.hp}
+                  themeColor={this.state.themeColor}
+                  stats_number={this.state.stats.hp}
+                />
+                <Stats
+                  stats_type={"Speed"}
+                  stats_size={this.state.speed}
+                  themeColor={this.state.themeColor}
+                  stats_number={this.state.stats.speed}
+                />
+                <Stats
+                  stats_type={"Attack"}
+                  stats_size={this.state.attack}
+                  themeColor={this.state.themeColor}
+                  stats_number={this.state.stats.attack}
+                />
+                <Stats
+                  stats_type={"Defense"}
+                  stats_size={this.state.defense}
+                  themeColor={this.state.themeColor}
+                  stats_number={this.state.stats.defense}
+                />
+                <Stats
+                  stats_type={"Special Attack"}
+                  stats_size={this.state.specialAttack}
+                  themeColor={this.state.themeColor}
+                  stats_number={this.state.stats.specialAttack}
+                />
+                <Stats
+                  stats_type={"Special Defense"}
+                  stats_size={this.state.specialDefense}
+                  themeColor={this.state.themeColor}
+                  stats_number={this.state.stats.specialDefense}
+                />
+              </div>
             </div>
-            <div className="col-md-9">
-              <h4 className="mx-auto">
-                <div className="random">{this.state.name}</div>
-              </h4>
-              <Stats
-                stats_type={"HP"}
-                stats_size={this.state.hp}
-                themeColor={this.state.themeColor}
-                stats_number={this.state.stats.hp}
-              />
-              <Stats
-                stats_type={"Speed"}
-                stats_size={this.state.speed}
-                themeColor={this.state.themeColor}
-                stats_number={this.state.stats.speed}
-              />
-              <Stats
-                stats_type={"Attack"}
-                stats_size={this.state.attack}
-                themeColor={this.state.themeColor}
-                stats_number={this.state.stats.attack}
-              />
-              <Stats
-                stats_type={"Defense"}
-                stats_size={this.state.defense}
-                themeColor={this.state.themeColor}
-                stats_number={this.state.stats.defense}
-              />
-              <Stats
-                stats_type={"Special Attack"}
-                stats_size={this.state.specialAttack}
-                themeColor={this.state.themeColor}
-                stats_number={this.state.stats.specialAttack}
-              />
-              <Stats
-                stats_type={"Special Defense"}
-                stats_size={this.state.specialDefense}
-                themeColor={this.state.themeColor}
-                stats_number={this.state.stats.specialDefense}
-              />
+            <div className="row mt-1">
+              <div className="col">
+                <p className="">{this.state.description}</p>
+              </div>
             </div>
           </div>
-          <div className="row mt-1">
-            <div className="col">
-              <p className="">{this.state.description}</p>
-            </div>
-          </div>
-        </div>
-        <hr />
-          <div className="card-body" style={{ backgroundColor: "white" }}>
+
+          <div className="card-body">
             <h5 class="card-title text-center">Profile</h5>
             <div className="row">
               <div className="col-md-6">
                 <Profile
                   profile_type={"Height:"}
                   profile_value={`${this.state.height} cm.`}
-                  genderRatioTrue = {false}
+                  genderRatioTrue={false}
                 />
                 <Profile
                   profile_type={"Weight:"}
                   profile_value={`${this.state.weight} lbs`}
-                  genderRatioTrue = {false}
+                  genderRatioTrue={false}
                 />
+              </div>
             </div>
-          </div>      
+          </div>
+          <div class="card-footer text-muted">
+            Pokemon Data Obtained From{" "}
+            <a href="https://pokeapi.co/" target="_blank" className="card-link">
+              PokeAPI.co
+            </a>
+          </div>
+        </div>
       </div>
-    </div>  
     );
   }
 }
