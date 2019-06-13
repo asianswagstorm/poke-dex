@@ -108,6 +108,74 @@ export default class Pokemon extends Component {
   };
 
   render() {
+    const statsData = [
+      {
+        stats_type: "HP",
+        stats_size: this.state.hp,
+        stats_number: this.state.stats.hp
+      },
+      {
+        stats_type: "Speed",
+        stats_size: this.state.speed,
+        stats_number: this.state.stats.speed
+      },
+      {
+        stats_type: "Attack",
+        stats_size: this.state.attack,
+        stats_number: this.state.stats.attack
+      },
+      {
+        stats_type: "Defense",
+        stats_size: this.state.defense,
+        stats_number: this.state.stats.defense
+      },
+      {
+        stats_type: "Special Attack",
+        stats_size: this.state.specialAttack,
+        stats_number: this.state.stats.specialAttack
+      },
+      {
+        stats_type: "Special Defense",
+        stats_size: this.state.specialDefense,
+        stats_number: this.state.stats.specialDefense
+      }
+    ];
+
+    const profileData = [
+      {
+        profile_type:"Height:",
+        profile_value:`${this.state.height} cm.`,
+        genderRatioTrue:false
+      },
+      {
+        profile_type:"Weight:",
+        profile_value:`${this.state.weight} lbs`,
+        genderRatioTrue:false
+      }];
+
+    const allStats = statsData.map((x, index) => {
+      return (
+        <Stats
+          key={index}
+          stats_type={x.stats_type}
+          stats_size={x.stats_size}
+          themeColor={this.state.themeColor}
+          stats_number={x.stats_number}
+        />
+      );
+    });
+
+    const allProfile = profileData.map((x, index) => {
+      return (
+        <Profile
+        key={index}
+        profile_type={x.profile_type}
+        profile_value={x.profile_value}
+        genderRatioTrue={x.genderRatioTrue}
+      />
+      );
+    });
+
     return (
       <div className="col">
         <div className="card">
@@ -148,42 +216,7 @@ export default class Pokemon extends Component {
                 <h4 className="mx-auto">
                   <div className="random">{this.state.name}</div>
                 </h4>
-                <Stats
-                  stats_type={"HP"}
-                  stats_size={this.state.hp}
-                  themeColor={this.state.themeColor}
-                  stats_number={this.state.stats.hp}
-                />
-                <Stats
-                  stats_type={"Speed"}
-                  stats_size={this.state.speed}
-                  themeColor={this.state.themeColor}
-                  stats_number={this.state.stats.speed}
-                />
-                <Stats
-                  stats_type={"Attack"}
-                  stats_size={this.state.attack}
-                  themeColor={this.state.themeColor}
-                  stats_number={this.state.stats.attack}
-                />
-                <Stats
-                  stats_type={"Defense"}
-                  stats_size={this.state.defense}
-                  themeColor={this.state.themeColor}
-                  stats_number={this.state.stats.defense}
-                />
-                <Stats
-                  stats_type={"Special Attack"}
-                  stats_size={this.state.specialAttack}
-                  themeColor={this.state.themeColor}
-                  stats_number={this.state.stats.specialAttack}
-                />
-                <Stats
-                  stats_type={"Special Defense"}
-                  stats_size={this.state.specialDefense}
-                  themeColor={this.state.themeColor}
-                  stats_number={this.state.stats.specialDefense}
-                />
+                {allStats}
               </div>
             </div>
             <div className="row mt-1">
@@ -197,16 +230,7 @@ export default class Pokemon extends Component {
             <h5 class="card-title text-center">Profile</h5>
             <div className="row">
               <div className="col-md-6">
-                <Profile
-                  profile_type={"Height:"}
-                  profile_value={`${this.state.height} cm.`}
-                  genderRatioTrue={false}
-                />
-                <Profile
-                  profile_type={"Weight:"}
-                  profile_value={`${this.state.weight} lbs`}
-                  genderRatioTrue={false}
-                />
+                {allProfile}
               </div>
             </div>
           </div>
