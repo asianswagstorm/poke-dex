@@ -30,8 +30,6 @@ export default class Pokemon extends Component {
     imageUrl: "",
     types: [],
     description: "",
-    statTitleWidth: 3,
-    statBarWidth: 9,
     stats: {
       hp: "",
       attack: "",
@@ -76,6 +74,7 @@ export default class Pokemon extends Component {
         if(x.language.name === "en" && x.language.url==="https://pokeapi.co/api/v2/language/9/"){
           description = x.flavor_text;
         }
+       return null;
       })
 
       if (poke.length === 0) {
@@ -120,15 +119,19 @@ export default class Pokemon extends Component {
               </div>
               <div className="col-7">
                 <div className="float-right">
-                  {this.state.types.map(type => (
+              
+                  {this.state.types.map(x => (
+                   
                     <span
-                      key={type}
+                      key={x.type.name}
                       className="badge badge-pill mr-1"
                       style={{
-                        backgroundColor: `#${TYPE_COLORS[type]}`,
+                        backgroundColor: `#${TYPE_COLORS[x.type.name]}`,
                         color: "white"
                       }}
-                    />
+                    >
+                   {x.type.name}
+                       </span>
                   ))}
                 </div>
               </div>
@@ -141,6 +144,7 @@ export default class Pokemon extends Component {
             <div className=" col-md-3 ">
               <img
                 src={this.state.imageUrl}
+                alt={"A Photograph of a Pokemon"}
                 className="card-img-top rounded mx-auto mt-2"
               />
             </div>
@@ -158,7 +162,7 @@ export default class Pokemon extends Component {
             </div>
           </div>
           <div className="row mt-1" >
-              <div className="col" style={{ backgroundColor: "white" }}>
+              <div className="col">
                 <p className="">{this.state.description}</p>
               </div>
             </div>

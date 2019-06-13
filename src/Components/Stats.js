@@ -11,8 +11,8 @@ export default class Pokemon extends Component {
 
     return (
         <div className="row align-items-center">
-    <div className={`col-12 col-md-5`}>{stats_type}</div>
-    <div className={`col-12 col-md-5`}>
+    <div className="col-12 col-md-3">{stats_type}</div>
+    <div className="col-12 col-md-9">
       <div className="progress">
         <div
           className="progress-bar "

@@ -31,6 +31,7 @@ export default class PokemonCard extends Component {
         <div className="card">
             <h5 className="card-index">{this.state.pokemonIndex}</h5>
              <img src={this.state.imageUrl}
+             alt="some pokemon"
               onLoad={() => this.setState({ imageLoading: false })}
               onError={() => this.setState({ toManyRequests: true })}
               style=
