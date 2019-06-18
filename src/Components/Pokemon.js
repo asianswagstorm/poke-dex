@@ -352,10 +352,10 @@ export default class Pokemon extends Component {
               <div className="col-5">{this.state.pokemonIndex}</div>
               <div className="col-7">
                 { this.state.pokemonIndex >= 2 &&  
-                <a href={`/Pokemon/${this.state.pokemonIndex - 1}`}> prev</a>
+                <a href={`/Pokemon/${this.state.pokemonIndex - 1}`} className= "button is-pulled-left"> prev</a>
                 }
                 { this.state.pokemonIndex < 18 && 
-                <a href={`/Pokemon/${this.state.pokemonIndex + 1}`}> next</a>
+                <a href={`/Pokemon/${this.state.pokemonIndex + 1}`} className= "button is-pulled-right"> next</a>
                 }
                 <div className="float-right">
                   {this.state.types.map(x => (

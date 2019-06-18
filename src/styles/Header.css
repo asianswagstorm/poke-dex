@@ -22,12 +22,12 @@
 .search{
     background-color: white;
     height: 2em;
-    width: 185px;
+    width: 205px;
     border-radius: 15px;
     opacity: 0.8;
     font-size: 15px;
-   
-    margin-right: auto;
+    
+    margin: auto;
 }
 
 .flex-container{
