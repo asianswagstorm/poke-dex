@@ -3,7 +3,7 @@ import Stats from "./Stats";
 import Profile from "./Profile";
 import Evolution from "./Evolution";
 import Axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const TYPE_COLORS = {
   bug: "B1C12E",
@@ -52,25 +52,23 @@ export default class Pokemon extends Component {
     hatchSteps: "",
     habitat: "",
     evolution_url: "",
-    evolution_data:"",
-    stage1:"",
-    stage1ID:"",
-    stage2:"",
-    stage2ID:"",
-    stage3:"",
-    stage3ID:"",
+    evolution_data: "",
+    stage1: "",
+    stage1ID: "",
+    stage2: "",
+    stage2ID: "",
+    stage3: "",
+    stage3ID: "",
     themeColor: "#EF5350"
   };
 
-
-  
   componentDidMount = async () => {
     try {
       let capitalize_firstLetter = string =>
-      string
-        .toLowerCase()
-        .charAt(0)
-        .toUpperCase() + string.slice(1);
+        string
+          .toLowerCase()
+          .charAt(0)
+          .toUpperCase() + string.slice(1);
 
       const { pokemonIndex } = this.props.match.params;
       const pokemonSpeciesLink = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}`;
@@ -131,74 +129,70 @@ export default class Pokemon extends Component {
       let hatchSteps = 255 * speciesData.hatch_counter;
 
       let evolution_url = speciesData.evolution_chain.url;
-      let evolution_data = (evolution_url !=="") ? await Axios.get(
-        `https://cors-anywhere.herokuapp.com/${evolution_url}`
-      ) : "not found";
+      let evolution_data =
+        evolution_url !== ""
+          ? await Axios.get(
+              `https://cors-anywhere.herokuapp.com/${evolution_url}`
+            )
+          : "not found";
 
-        const data_json = (evolution_url !=="") ? evolution_data.data.chain : pokemon_name;
-        console.log(data_json);
-      
+      const data_json =
+        evolution_url !== "" ? evolution_data.data.chain : pokemon_name;
+      console.log(data_json);
+
       let stage1 = capitalize_firstLetter(data_json.species.name);
-      let stage1ID = data_json.species.url.split('/')[6];
-     
+      let stage1ID = data_json.species.url.split("/")[6];
+
       let stage2 = capitalize_firstLetter(data_json.evolves_to[0].species.name);
-      let stage2ID = data_json.evolves_to[0].species.url.split('/')[6];
-     
-      let stage3 = capitalize_firstLetter(data_json.evolves_to[0].evolves_to[0].species.name);
-      let stage3ID = data_json.evolves_to[0].evolves_to[0].species.url.split('/')[6];
-        
-       poke.length === 0 ?
-        this.setState({ message: "No such Pokemon Found" })
-      :
-        this.setState({
-          pokemonIndex: poke.id,
-          name: pokemon_name,
-          height: poke.height * 10,
-          weight: Math.round(poke.weight * (2.20462 / 10)),
-          imageUrl: poke.sprites.front_default,
-          stats: poke.stats,
-          hp: poke.stats[5].base_stat,
-          attack: poke.stats[4].base_stat,
-          defense: poke.stats[3].base_stat,
-          speed: poke.stats[0].base_stat,
-          specialAttack: poke.stats[2].base_stat,
-          specialDefense: poke.stats[1].base_stat,
-          types: poke.types,
-          themeColor: themeColor,
-          description: description, //speciesData.flavor_text_entries[9].flavor_text
-          catchRate: catchRate,
-          eggGroups: egg_groups,
-          habitat: habitat,
-          hatchSteps: hatchSteps,
-          abilities: abilities,
-          genderRatioFemale: genderRatioFemale,
-          genderRatioMale: genderRatioMale,
-          evolution_url: evolution_url,
-          evolution_data: JSON.stringify(data_json),
-          stage1:stage1,
-          stage2:stage2,
-          stage3:stage3,
-          stage1ID:stage1ID,
-          stage2ID:stage2ID,
-          stage3ID:stage3ID,
-          evs: evs
-        })
-      
+      let stage2ID = data_json.evolves_to[0].species.url.split("/")[6];
+
+      let stage3 = capitalize_firstLetter(
+        data_json.evolves_to[0].evolves_to[0].species.name
+      );
+      let stage3ID = data_json.evolves_to[0].evolves_to[0].species.url.split(
+        "/"
+      )[6];
+
+      poke.length === 0
+        ? this.setState({ message: "No such Pokemon Found" })
+        : this.setState({
+            pokemonIndex: poke.id,
+            name: pokemon_name,
+            height: poke.height * 10,
+            weight: Math.round(poke.weight * (2.20462 / 10)),
+            imageUrl: poke.sprites.front_default,
+            stats: poke.stats,
+            hp: poke.stats[5].base_stat,
+            attack: poke.stats[4].base_stat,
+            defense: poke.stats[3].base_stat,
+            speed: poke.stats[0].base_stat,
+            specialAttack: poke.stats[2].base_stat,
+            specialDefense: poke.stats[1].base_stat,
+            types: poke.types,
+            themeColor: themeColor,
+            description: description, //speciesData.flavor_text_entries[9].flavor_text
+            catchRate: catchRate,
+            eggGroups: egg_groups,
+            habitat: habitat,
+            hatchSteps: hatchSteps,
+            abilities: abilities,
+            genderRatioFemale: genderRatioFemale,
+            genderRatioMale: genderRatioMale,
+            evolution_url: evolution_url,
+            evolution_data: JSON.stringify(data_json),
+            stage1: stage1,
+            stage2: stage2,
+            stage3: stage3,
+            stage1ID: stage1ID,
+            stage2ID: stage2ID,
+            stage3ID: stage3ID,
+            evs: evs
+          });
     } catch (error) {
       console.log("Invalid pokemon ID");
       console.log(error);
     }
   };
-
-
-  prev() {
-    console.log("hi?");
-  }
-
-  next() {
-   
-    console.log("hi1?");
-  }
 
   render() {
     const gender_ratio = (
@@ -355,12 +349,14 @@ export default class Pokemon extends Component {
         <div className="card">
           <div className="card-header">
             <div className="row">
-              <div className="col-5">
-                {this.state.pokemonIndex}  
-              </div>
+              <div className="col-5">{this.state.pokemonIndex}</div>
               <div className="col-7">
-              <a href={`/Pokemon/${this.state.pokemonIndex-1}`}> prev</a>
-              <a href={`/Pokemon/${this.state.pokemonIndex+1}`}> next</a>
+                { this.state.pokemonIndex >= 2 &&  
+                <a href={`/Pokemon/${this.state.pokemonIndex - 1}`}> prev</a>
+                }
+                { this.state.pokemonIndex < 18 && 
+                <a href={`/Pokemon/${this.state.pokemonIndex + 1}`}> next</a>
+                }
                 <div className="float-right">
                   {this.state.types.map(x => (
                     <span
@@ -412,14 +408,35 @@ export default class Pokemon extends Component {
 
           <div className="card-body">
             <h5 className="card-title text-center">Evolution</h5>
-            <div className="row">
-            {this.state.evolution_data ? <Evolution stage1 = {this.state.stage1} stage2 = {this.state.stage2} stage3 = {this.state.stage3} stage1ID = {this.state.stage1ID}  stage2ID = {this.state.stage2ID}  stage3ID = {this.state.stage3ID} /> : <div className="loader" style={{width:"50px",height:"50px"}}></div>}
-    
-            </div>
+           <div className= "evolution-chart"  style={{alignContent: "end"}}>
+           
+                {this.state.evolution_data ? (
+                 
+                  <Evolution
+                    stage1={this.state.stage1}
+                    stage2={this.state.stage2}
+                    stage3={this.state.stage3}
+                    stage1ID={this.state.stage1ID}
+                    stage2ID={this.state.stage2ID}
+                    stage3ID={this.state.stage3ID}
+                  />
+                ) : (
+                  <div
+                    className="loader"
+                    style={{ width: "50px", height: "50px" }}
+                  />
+                )}
+                
+             </div>
           </div>
           <div className="card-footer text-muted">
             Pokemon Data Obtained From{" "}
-            <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer" className="card-link">
+            <a
+              href="https://pokeapi.co/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-link"
+            >
               PokeAPI.co
             </a>
           </div>

@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export default class Pokemons extends Component {
   state = {
-    url: 'https://pokeapi.co/api/v2/pokemon/?limit=16',
+    url: 'https://pokeapi.co/api/v2/pokemon/?limit=18',
     pokemon: null //where json will be saved
   };
 
