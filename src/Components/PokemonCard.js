@@ -12,7 +12,7 @@ export default class PokemonCard extends Component {
   componentDidMount() {
     const { name, url ,id} = this.props;
     
-    const pokemonIndex = (this.props.by_name==false) ? url.split("/")[url.split("/").length - 2] : id;
+    const pokemonIndex = (this.props.by_name===false) ? url.split("/")[url.split("/").length - 2] : id;
     //const imageUrl = `./sprites/pokemon/${pokemonIndex}.png`;
     const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
 

@@ -3,14 +3,13 @@ import Search from "./Search";
 import PokemonCard from './PokemonCard';
 import Loading from './Loading';
 import axios from 'axios';
-import { resolve6 } from 'dns';
 
 export default class Pokemons extends Component {
   constructor(props) {
     super(props);
     this.state = {
       by_name : false,
-      url: 'https://pokeapi.co/api/v2/pokemon/?limit=18',
+      url: 'https://pokeapi.co/api/v2/pokemon/?limit=24',
       pokemon: null //where json will be saved
     };
 }

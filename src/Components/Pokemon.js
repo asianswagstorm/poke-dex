@@ -3,7 +3,6 @@ import Stats from "./Stats";
 import Profile from "./Profile";
 import Evolution from "./Evolution";
 import Axios from "axios";
-import { Link } from "react-router-dom";
 
 const TYPE_COLORS = {
   bug: "B1C12E",
@@ -124,7 +123,7 @@ export default class Pokemon extends Component {
           .map(s => capitalize_firstLetter(s))
           .join(" ")
       );
-      let habitat = capitalize_firstLetter(speciesData.habitat.name);
+      let habitat = (speciesData.habitat != null) ? capitalize_firstLetter(speciesData.habitat.name) : "Not Available" ;
       //Initial hatch counter: one must walk 255 × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's.
       let hatchSteps = 255 * speciesData.hatch_counter;
 
@@ -141,17 +140,19 @@ export default class Pokemon extends Component {
       console.log(data_json);
 
       let stage1 = capitalize_firstLetter(data_json.species.name);
+      console.log("stage1 " + stage1);
       let stage1ID = data_json.species.url.split("/")[6];
 
-      let stage2 = capitalize_firstLetter(data_json.evolves_to[0].species.name);
-      let stage2ID = data_json.evolves_to[0].species.url.split("/")[6];
+      let stage2 = (data_json.evolves_to[0] != null) ? capitalize_firstLetter(data_json.evolves_to[0].species.name) : "None";
+      console.log("stage2 " + stage2);
+      let stage2ID = (data_json.evolves_to[0] != null) ? data_json.evolves_to[0].species.url.split("/")[6] : 0;
 
-      let stage3 = capitalize_firstLetter(
-        data_json.evolves_to[0].evolves_to[0].species.name
-      );
-      let stage3ID = data_json.evolves_to[0].evolves_to[0].species.url.split(
-        "/"
-      )[6];
+      
+      let stage3 = (data_json.evolves_to[0] != null) ? (( (data_json.evolves_to[0].evolves_to[0] != null) ) ? capitalize_firstLetter(
+        data_json.evolves_to[0].evolves_to[0].species.name) : "None") : "None" ;
+      console.log("stage3 " + stage3);
+      let stage3ID = (data_json.evolves_to[0] != null) ? (( (data_json.evolves_to[0].evolves_to[0] != null) ) ? data_json.evolves_to[0].evolves_to[0].species.url.split(
+        "/")[6] : 0) : 0 ;
 
       poke.length === 0
         ? this.setState({ message: "No such Pokemon Found" })
@@ -160,7 +161,7 @@ export default class Pokemon extends Component {
             name: pokemon_name,
             height: poke.height * 10,
             weight: Math.round(poke.weight * (2.20462 / 10)),
-            imageUrl: poke.sprites.front_default,
+            imageUrl: `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`,
             stats: poke.stats,
             hp: poke.stats[5].base_stat,
             attack: poke.stats[4].base_stat,
@@ -354,7 +355,7 @@ export default class Pokemon extends Component {
                 { this.state.pokemonIndex >= 2 &&  
                 <a href={`/Pokemon/${this.state.pokemonIndex - 1}`} className= "button is-pulled-left"> prev</a>
                 }
-                { this.state.pokemonIndex < 18 && 
+                { this.state.pokemonIndex < 807 && 
                 <a href={`/Pokemon/${this.state.pokemonIndex + 1}`} className= "button is-pulled-right"> next</a>
                 }
                 <div className="float-right">

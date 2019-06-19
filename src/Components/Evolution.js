@@ -11,6 +11,7 @@ export default class Evolution extends Component {
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 this.props.stage1ID
               }.png`}
+              alt={"A Photograph of a Stage 1 Pokemon"}
             /> <br></br>
             {this.props.stage1}
           </div>
@@ -21,6 +22,7 @@ export default class Evolution extends Component {
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 this.props.stage2ID
               }.png`}
+              alt={"A Photograph of a Stage 2 Pokemon"}
             /> <br></br>
             {this.props.stage2}
           </div>
@@ -30,6 +32,7 @@ export default class Evolution extends Component {
               <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 this.props.stage3ID
               }.png`}
+              alt={"A Photograph of a Stage 3 Pokemon"}
             /> <br></br>
             {this.props.stage3}
           </div>
