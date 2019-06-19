@@ -6,7 +6,6 @@ export default class Stats extends Component {
 
     const stats_type = this.props.stats_type;
     const stats_size = this.props.stats_size;
-    const stats_number = this.props.stats_number;
     const themeColor = this.props.themeColor;
 
     return (
@@ -25,7 +24,7 @@ export default class Stats extends Component {
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          <small>{stats_number}</small>
+          <small>{stats_size}</small>
         </div>
       </div>
     </div>

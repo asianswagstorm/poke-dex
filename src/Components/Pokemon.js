@@ -233,32 +233,26 @@ export default class Pokemon extends Component {
       {
         stats_type: "HP",
         stats_size: this.state.hp,
-        stats_number: this.state.stats.hp
       },
       {
         stats_type: "Speed",
         stats_size: this.state.speed,
-        stats_number: this.state.stats.speed
       },
       {
         stats_type: "Attack",
         stats_size: this.state.attack,
-        stats_number: this.state.stats.attack
       },
       {
         stats_type: "Defense",
         stats_size: this.state.defense,
-        stats_number: this.state.stats.defense
       },
       {
         stats_type: "Special Attack",
         stats_size: this.state.specialAttack,
-        stats_number: this.state.stats.specialAttack
       },
       {
         stats_type: "Special Defense",
         stats_size: this.state.specialDefense,
-        stats_number: this.state.stats.specialDefense
       }
     ];
 
@@ -317,7 +311,6 @@ export default class Pokemon extends Component {
           stats_type={x.stats_type}
           stats_size={x.stats_size}
           themeColor={this.state.themeColor}
-          stats_number={x.stats_number}
         />
       );
     });
@@ -354,12 +347,10 @@ export default class Pokemon extends Component {
             <div className="row">
               <div className="col-5">{this.state.pokemonIndex}</div>
               <div className="col-7">
-                { this.state.pokemonIndex >= 2 &&  
-                <a href={`/Pokemon/${this.state.pokemonIndex - 1}`} className= "button is-pulled-left"> prev</a>
-                }
-                { this.state.pokemonIndex < 807 && 
-                <a href={`/Pokemon/${this.state.pokemonIndex + 1}`} className= "button is-pulled-right"> next</a>
-                }
+    
+                <a href={(this.state.pokemonIndex >= 2) ? `/Pokemon/${this.state.pokemonIndex - 1}` : `/Pokemon/807`} className= "button is-pulled-left"> prev</a>
+                <a href={(this.state.pokemonIndex < 807) ? `/Pokemon/${this.state.pokemonIndex + 1}` : `/Pokemon/1`} className= "button is-pulled-right"> next</a>
+               
                 <div className="float-right">
                   {this.state.types.map(x => (
                     <span
