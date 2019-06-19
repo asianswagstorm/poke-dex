@@ -384,6 +384,7 @@ export default class Pokemon extends Component {
               {this.state.imageLoading ? (
               <img
                 src={spinner}
+                alt={"loading gif"}
                 style={{ width: '5em', height: '5em' }}
                 className="card-img-top rounded mx-auto d-block mt-2"
               />
