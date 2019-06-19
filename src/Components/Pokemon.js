@@ -3,6 +3,7 @@ import Stats from "./Stats";
 import Profile from "./Profile";
 import Evolution from "./Evolution";
 import Axios from "axios";
+import spinner from './spinner.gif';
 
 const TYPE_COLORS = {
   bug: "B1C12E",
@@ -58,7 +59,8 @@ export default class Pokemon extends Component {
     stage2ID: "",
     stage3: "",
     stage3ID: "",
-    themeColor: "#EF5350"
+    themeColor: "#EF5350",
+    imageLoading: true
   };
 
   componentDidMount = async () => {
@@ -379,9 +381,17 @@ export default class Pokemon extends Component {
           <div className="card-body">
             <div className="row align-items-center">
               <div className=" col-md-3 ">
+              {this.state.imageLoading ? (
+              <img
+                src={spinner}
+                style={{ width: '5em', height: '5em' }}
+                className="card-img-top rounded mx-auto d-block mt-2"
+              />
+            ) : null}
                 <img
                   src={this.state.imageUrl}
                   alt={"A Photograph of a Pokemon"}
+                  onLoad={() => this.setState({ imageLoading: false })}
                   className="card-img-top rounded mx-auto mt-2"
                 />
               </div>

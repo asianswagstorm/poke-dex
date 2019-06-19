@@ -9,7 +9,7 @@ export default class Pokemons extends Component {
     super(props);
     this.state = {
       by_name : false,
-      url: 'https://pokeapi.co/api/v2/pokemon/?limit=24',
+      url: 'https://pokeapi.co/api/v2/pokemon/?limit=52', //807
       pokemon: null //where json will be saved
     };
 }

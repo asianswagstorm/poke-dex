@@ -9,6 +9,8 @@ export default class Header extends Component {
         <div className="flex-container">
        
         <div className="header-title">  <a className="home-title" href= "/" > PokeDex App </a></div>
+        <p> This pokedex contains 807 Pokemons</p>
+
         </div>
       </header>
     );
