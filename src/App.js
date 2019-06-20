@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/Pokemon/:pokemonIndex" component={Pokemon} />
-          <Route path="*" exact component={Header} /> {/* change to not found*/}
+          <Route path="*" exact component={Home} /> 
         </Switch>
         </div>
         <div className="footer-seperator">
