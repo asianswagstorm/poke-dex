@@ -106,7 +106,7 @@
     }
 }
 
-@media only screen and (width: 414px) and (height: 736px)  {
+@media only screen and (width: 414px) and (height: 736px)  and (-webkit-min-device-pixel-ratio: 3)   {
 
     .card{
         min-width: 300px;
@@ -127,7 +127,7 @@
     }
 }
 
-@media only screen and (width: 375px) and (min-height: 667px)  {
+@media only screen and (width: 375px) and (min-height: 667px) and (-webkit-min-device-pixel-ratio: 2) {
      .card{
         margin: 30px 0 20px -45px;
     } 

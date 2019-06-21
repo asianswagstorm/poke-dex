@@ -93,11 +93,11 @@ export default class Pokemons extends Component {
             <Search searchResult={this.search} />{" "}
           </div>
         </div>
-        <div className="row justify-content-around">
+        <div className="row 50% uniform">
           {console.log(this.state.pokemon)}
 
           {this.state.pokemon ? (
-            <div className="row">
+            <div className="row 50% uniform">
               {this.state.pokemon.map(pokemon => (
                 <PokemonCard
                   key={pokemon.name}
