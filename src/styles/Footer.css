@@ -16,6 +16,23 @@
    
  }
 
+ @media only screen and (width: 1024px) and (height:1366px) {
+
+  .footer {
+      position: relative;
+      bottom:0;
+      left:0; 
+      width: 100%;
+      height: 100px;
+      
+      clear:both;
+      background-color: red;
+      color: white;
+      text-align: center;
+   }
+
+  }
+
  .footer-content {
    /* An element's margin controls the amount of space between an element's border and surrounding elements. */
     margin-top: 30px;

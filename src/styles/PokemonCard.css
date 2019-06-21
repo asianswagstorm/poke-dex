@@ -38,11 +38,40 @@
 
 @media only screen and (width: 1280px)  {
 
+    .card{
+        min-width: 200px;
+     
+    }
+
     .individual_card{
        
         opacity: 0.95;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-        margin: 30px 900px 20px 10px;
+        margin: 80px 900px 20px 55px;
+        align-self: center;
+        -moz-user-select: none; /* Mozilla-specific values */
+        -ms-user-select: none; /* Microsoft-specific values */
+        -webkit-user-select: none; /* WebKit-specific values */
+        user-select: none; /* Keyword values */
+        -o-user-select: none; 
+    }
+}
+
+@media only screen and (width: 1024px) and (height:1366px) {
+
+    .card{
+        min-width: 125px;
+     
+    }
+    h3{ 
+        font-size: 15px;
+    }
+
+    .individual_card{
+        
+        opacity: 0.95;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        margin: 60px 900px 20px 40px;
         align-self: center;
         -moz-user-select: none; /* Mozilla-specific values */
         -ms-user-select: none; /* Microsoft-specific values */
@@ -58,15 +87,16 @@
         min-width: 125px;
      
     }
+
     h3{ 
         font-size: 15px;
     }
 
     .individual_card{
-       
+        max-width: 125px;
         opacity: 0.95;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-        margin: 30px 0px 20px 30px;
+        margin: 80px 200px 20px 30px;
         align-self: center;
         -moz-user-select: none; /* Mozilla-specific values */
         -ms-user-select: none; /* Microsoft-specific values */
@@ -76,16 +106,18 @@
     }
 }
 
-@media only screen and (width: 414px)  {
+@media only screen and (width: 414px) and (height: 736px)  {
 
     .card{
+        min-width: 300px;
         margin: 30px 0 20px -25px;
     }
 
     .individual_card{
+        max-width: 300px;
         opacity: 0.95;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-        margin: 60px 0px 20px 95px;
+        margin: 60px 0px 20px 85px;
         align-self: center;
         -moz-user-select: none; /* Mozilla-specific values */
         -ms-user-select: none; /* Microsoft-specific values */
@@ -95,15 +127,16 @@
     }
 }
 
-@media only screen and (width: 375px)  {
-    .card{
+@media only screen and (width: 375px) and (min-height: 667px)  {
+     .card{
         margin: 30px 0 20px -45px;
-    }
+    } 
 
     .individual_card{
+        max-width: 200px;
         opacity: 0.95;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-        margin: 50px 0 20px 97px;
+        margin: 50px 0 20px 100px;
         align-self: center;
         -moz-user-select: none; /* Mozilla-specific values */
         -ms-user-select: none; /* Microsoft-specific values */
@@ -120,7 +153,7 @@
     }
 
     .individual_card{
-        max-width: 80px;
+        
         opacity: 0.95;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
         margin: 50px 30px 20px 100px;
