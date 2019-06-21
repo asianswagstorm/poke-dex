@@ -342,6 +342,7 @@ export default class Pokemon extends Component {
       });
     return (
       <div className="col">
+        <div className="pokemon-data">
         <div className="card">
           <div className="card-header">
             <div className="row">
@@ -443,6 +444,7 @@ export default class Pokemon extends Component {
               PokeAPI.co
             </a>
           </div>
+        </div>
         </div>
       </div>
     );

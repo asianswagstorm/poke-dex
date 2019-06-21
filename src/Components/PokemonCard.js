@@ -28,9 +28,11 @@ export default class PokemonCard extends Component {
   }
 
   render() {
+    
     return (
       // 	margin bottom mb
-      <div className="col">
+      
+      <div className="col-md-3 col-sm-6 mb-5">
          <div className="individual_card">
         <a className="link-hover" href={`Pokemon/${this.state.pokemonIndex}`}>
          

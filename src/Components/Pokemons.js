@@ -81,6 +81,7 @@ export default class Pokemons extends Component {
           this.setState({ pokemon: res.data.data, by_name: true });
         });
     }
+    document.removeEventListener("scroll", this.trackScrolling);
   };
 
   render() {

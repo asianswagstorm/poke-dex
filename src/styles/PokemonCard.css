@@ -1,20 +1,136 @@
 .card{
     min-width: 300px;
-    margin: 50px;
-    
+   
+}
+
+.pokemon-data{
+    margin: 25px 70px 70px 70px;
 }
 
 .individual_card{
-    max-width: 300px;
-    margin: 8px;
     opacity: 0.95;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-    
+    margin: 50px 65px 0 65px;
+  
+    align-self: center;
     -moz-user-select: none; /* Mozilla-specific values */
     -ms-user-select: none; /* Microsoft-specific values */
     -webkit-user-select: none; /* WebKit-specific values */
     user-select: none; /* Keyword values */
     -o-user-select: none; 
+}
+
+@media only screen and (width: 1440px)  {
+
+    .individual_card{
+       
+        opacity: 0.95;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        margin: 50px 900px 20px 20px;
+        align-self: center;
+        -moz-user-select: none; /* Mozilla-specific values */
+        -ms-user-select: none; /* Microsoft-specific values */
+        -webkit-user-select: none; /* WebKit-specific values */
+        user-select: none; /* Keyword values */
+        -o-user-select: none; 
+    }
+}
+
+@media only screen and (width: 1280px)  {
+
+    .individual_card{
+       
+        opacity: 0.95;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        margin: 30px 900px 20px 10px;
+        align-self: center;
+        -moz-user-select: none; /* Mozilla-specific values */
+        -ms-user-select: none; /* Microsoft-specific values */
+        -webkit-user-select: none; /* WebKit-specific values */
+        user-select: none; /* Keyword values */
+        -o-user-select: none; 
+    }
+}
+
+@media only screen and (width: 768px) and (height:1024px) {
+
+    .card{
+        min-width: 125px;
+     
+    }
+    h3{ 
+        font-size: 15px;
+    }
+
+    .individual_card{
+       
+        opacity: 0.95;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        margin: 30px 0px 20px 30px;
+        align-self: center;
+        -moz-user-select: none; /* Mozilla-specific values */
+        -ms-user-select: none; /* Microsoft-specific values */
+        -webkit-user-select: none; /* WebKit-specific values */
+        user-select: none; /* Keyword values */
+        -o-user-select: none; 
+    }
+}
+
+@media only screen and (width: 414px)  {
+
+    .card{
+        margin: 30px 0 20px -25px;
+    }
+
+    .individual_card{
+        opacity: 0.95;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        margin: 60px 0px 20px 95px;
+        align-self: center;
+        -moz-user-select: none; /* Mozilla-specific values */
+        -ms-user-select: none; /* Microsoft-specific values */
+        -webkit-user-select: none; /* WebKit-specific values */
+        user-select: none; /* Keyword values */
+        -o-user-select: none; 
+    }
+}
+
+@media only screen and (width: 375px)  {
+    .card{
+        margin: 30px 0 20px -45px;
+    }
+
+    .individual_card{
+        opacity: 0.95;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        margin: 50px 0 20px 97px;
+        align-self: center;
+        -moz-user-select: none; /* Mozilla-specific values */
+        -ms-user-select: none; /* Microsoft-specific values */
+        -webkit-user-select: none; /* WebKit-specific values */
+        user-select: none; /* Keyword values */
+        -o-user-select: none; 
+    }
+}
+
+@media only screen and (width: 320px) {
+
+    .card{
+        margin: 30px 0 20px -75px;
+    }
+
+    .individual_card{
+        max-width: 80px;
+        opacity: 0.95;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        margin: 50px 30px 20px 100px;
+        align-self: center;
+        -moz-user-select: none; /* Mozilla-specific values */
+        -ms-user-select: none; /* Microsoft-specific values */
+        -webkit-user-select: none; /* WebKit-specific values */
+        user-select: none; /* Keyword values */
+        -o-user-select: none; 
+    } 
 }
 
 .link-hover :hover, .link-hover:focus , .link-hover:visited ,.link-hover:link ,.link-hover:active  {
