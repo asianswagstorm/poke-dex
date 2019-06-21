@@ -93,7 +93,7 @@ export default class Pokemons extends Component {
             <Search searchResult={this.search} />{" "}
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           {console.log(this.state.pokemon)}
 
           {this.state.pokemon ? (
@@ -106,7 +106,9 @@ export default class Pokemons extends Component {
                   id={pokemon.id}
                   by_name={this.state.by_name}
                 />
+                
               ))}
+              
             </div>
           ) : (
             <Loading />

@@ -10,7 +10,7 @@
 .individual_card{
     opacity: 0.95;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-    margin: 50px 65px 0 65px;
+    margin: 50px 900px 0 65px;
   
     align-self: center;
     -moz-user-select: none; /* Mozilla-specific values */
