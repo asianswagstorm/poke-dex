@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Search from "./Search";
 import PokemonCard from "./PokemonCard";
-import Loading from "./Loading";
+import NoResults from "./NoResults";
 import axios from "axios";
 
 export default class Pokemons extends Component {
@@ -13,6 +13,7 @@ export default class Pokemons extends Component {
       num_of_pokemon: 12,
       pokemon: null,
       isLoading: false,
+      searchQuery: "",
       tracker: 0 //where json will be saved
     };
   }
@@ -77,7 +78,10 @@ export default class Pokemons extends Component {
           `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${poke}`
         )
         .then(res => {
-          console.log(res.data.data);
+          console.log('response',res.data.data);
+          if((res.data.data).length === 0 ){
+            this.setState({ searchQuery: poke });
+          }
           this.setState({ pokemon: res.data.data, by_name: true });
         });
     }
@@ -94,9 +98,9 @@ export default class Pokemons extends Component {
           </div>
         </div>
         <div className="row 50% uniform">
-          {console.log(this.state.pokemon)}
-
-          {this.state.pokemon ? (
+          {/* {console.log("pokemons", this.state.pokemon)} */}
+          {/* {console.log("pokemons array size", (this.state.pokemon !== null) ? (this.state.pokemon).length : 0)} */}
+          {(this.state.pokemon && (this.state.pokemon).length > 0) ? (
             <div className="row 50% uniform">
               {this.state.pokemon.map(pokemon => (
                 <PokemonCard
@@ -111,7 +115,7 @@ export default class Pokemons extends Component {
               
             </div>
           ) : (
-            <Loading />
+            <NoResults searchQuery = {this.state.searchQuery}/>
           )}
         </div>
       </div>

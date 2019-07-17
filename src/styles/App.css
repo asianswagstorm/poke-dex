@@ -9,6 +9,25 @@
   min-height:100%;
  }
 
+.form-control{
+  color:black;
+}
+
+.no-results{
+  width: 300px;
+  position: absolute;
+  display:inline-block;
+  align-self: center;
+  right:43%;
+  bottom:-300%;
+  background-color: red;
+}
+
+.no-results-text{
+  text-align: center;
+  color: white;
+}
+
 .content{
   padding-top:50px;
   min-height:90vh;
